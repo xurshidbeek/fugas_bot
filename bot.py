@@ -97,16 +97,19 @@ async def br():
 @dp.message_handler(lambda message: message.text == "Mahsulot 1" or "Mahsulot 2" or "Mahsulot 3" or "Mahsulot 4" or "Mahsulot 5" or "Mahsulot 6" or"Mahsulot 7" or "Mahsulot 8" )
 async def show_menu(message: types.Message):
     # action = button_callback_menu.new(action=message.text)
-    if message != "Matinni ovozlashtirish":
+
+    if message == "Matinni ovozlashtirish":
         await ovoz(message)
     else:
         await message.answer(" Mahsulotni nechtaligini tanglang:", reply_markup=keyboard)
 
 
-"""   if message  == "Matinni ovozlashtirish":
+"""  
+  if message != "Matinni ovozlashtirish":
         await ovoz(message)
     else:
         await message.answer(" Mahsulotni nechtaligini tanglang:", reply_markup=keyboard)
+
 """
 
 
