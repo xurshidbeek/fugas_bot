@@ -35,49 +35,52 @@ async def send_welcome(message: types.Message):
 
 
 @dp.message_handler(lambda message: message.text == "Menyu 1")
-async def show_menu(message: types.Message):
+async def show_menu_1(message: types.Message):
     # action = button_callback_menu.new(action=message.text)
     await message.answer("1 - bo'lim. Mahsulotlardan birini tanglang:", reply_markup=menu_detail)
 
 @dp.message_handler(lambda message: message.text == "Menyu 2")
-async def show_menu(message: types.Message):
+async def show_menu_2(message: types.Message):
     # action = button_callback_menu.new(action=message.text)
     await message.answer("2 - bo'lim. Mahsulotlardan birini tanglang:", reply_markup=menu_detail)
 
 @dp.message_handler(lambda message: message.text == "Menyu 3")
-async def show_menu(message: types.Message):
+async def show_menu_3(message: types.Message):
     # action = button_callback_menu.new(action=message.text)
     await message.answer("3 - bo'lim. Mahsulotlardan birini tanglang:", reply_markup=menu_detail)
 
 @dp.message_handler(lambda message: message.text == "Menyu 4")
-async def show_menu(message: types.Message):
+async def show_menu_4(message: types.Message):
     # action = button_callback_menu.new(action=message.text)
     await message.answer("4 - bo'lim. Mahsulotlardan birini tanglang:", reply_markup=menu_detail)
 
 @dp.message_handler(lambda message: message.text == "Menyu 5")
-async def show_menu(message: types.Message):
+async def show_menu_5(message: types.Message):
     # action = button_callback_menu.new(action=message.text)
     await message.answer("5 - bo'lim. Mahsulotlardan birini tanglang: " , reply_markup=menu_detail)
 
 
 @dp.message_handler(lambda message: message.text == "Menyu 6")
-async def show_menu(message: types.Message):
+async def show_menu_6(message: types.Message):
     # action = button_callback_menu.new(action=message.text)
-    await message.answer("6 - bo'lim. Mahsulotlardan birini tanglang: " , reply_markup=menu_detail)
+    await message.answer("6 - bo'lim. Mahsulotlardan birini tanglang: ", reply_markup=menu_detail)
 
 
 @dp.message_handler(lambda message: message.text == "Menyu 7")
-async def show_menu(message: types.Message):
+async def show_menu_7(message: types.Message):
     # action = button_callback_menu.new(action=message.text)
-    await message.answer("7 - bo'lim. Mahsulotlardan birini tanglang: " , reply_markup=menu_detail)
+    await message.answer("7 - bo'lim. Mahsulotlardan birini tanglang: ", reply_markup=menu_detail)
 
 
 @dp.message_handler(lambda message: message.text == "Menyu 8")
-async def show_menu(message: types.Message):
+async def show_menu_8(message: types.Message):
     # action = button_callback_menu.new(action=message.text)
-    await message.answer("8 - bo'lim. Mahsulotlardan birini tanglang: " , reply_markup=menu_detail)
+    await message.answer("8 - bo'lim. Mahsulotlardan birini tanglang: ", reply_markup=menu_detail)
 
 
+@dp.message_handler(lambda message: message.text == "Matinni ovozlashtirish")
+async def br(message: types.Message):
+    await ovoz(message)
 
 
 
@@ -90,42 +93,19 @@ async def show_menu(message: types.Message):
 
 
 
-@dp.message_handler(lambda message : message.text == "Matinni ovozlashtirsh")
-async def br():
-    await ovoz
-
-@dp.message_handler(lambda message: message.text == "Mahsulot 1" or "Mahsulot 2" or "Mahsulot 3" or "Mahsulot 4" or "Mahsulot 5" or "Mahsulot 6" or"Mahsulot 7" or "Mahsulot 8" )
-async def show_menu(message: types.Message):
+@dp.message_handler(lambda message: message.text == "Mahsulot 1" or "Mahsulot 3" or "Mahsulot 4")
+async def show_menu_12(message: types.Message):
     # action = button_callback_menu.new(action=message.text)
-
     if message == "Matinni ovozlashtirish":
         await ovoz(message)
+
     else:
         await message.answer(" Mahsulotni nechtaligini tanglang:", reply_markup=keyboard)
-
-
-"""  
-  if message != "Matinni ovozlashtirish":
         await ovoz(message)
-    else:
-        await message.answer(" Mahsulotni nechtaligini tanglang:", reply_markup=keyboard)
-
-"""
 
 
-###########################
-###########################
-###########################
-###########################
-"""
-    Assalomu alaykum ustoz men matnlarni ovozlashtrw degan buttonga yozgan matini ovozlawtiruvchi funk qowdim lekin
-    if != bolsa iwlayapti qolgan hollarda esa inline_button chiqyapti 
-    shuning uchun tepaga 3hil varianti korsatib qoydim
-    """
-###########################
-###########################
-###########################
-###########################
+
+
 @dp.message_handler(content_types=types.ContentType.TEXT)
 async def ovoz(x: types.Message):
     try:
@@ -146,6 +126,31 @@ async def ovoz(x: types.Message):
     except Exception as e:
         await x.reply("Xatolik yuz berdi: " + str(e))
 
+
+
+"""  
+    if message == "Matinni ovozlashtirish":
+        await ovoz(message)
+    else:
+        await message.answer(" Mahsulotni nechtaligini tanglang:", reply_markup=keyboard)
+
+
+"""
+
+
+###########################
+###########################
+###########################
+###########################
+"""
+    Assalomu alaykum ustoz men matnlarni ovozlashtrw degan buttonga yozgan matini ovozlawtiruvchi funk qowdim lekin
+    if != bolsa iwlayapti qolgan hollarda esa inline_button chiqyapti 
+    shuning uchun tepaga 3hil varianti korsatib qoydim
+    """
+###########################
+###########################
+###########################
+###########################
 
 @dp.message_handler(commands=['image'])
 async def send_image(message: types.Message):
